@@ -274,6 +274,8 @@ nav .nav-link .avatar {
   background: #F8F8F8;
   border-radius: 0 0 10px 10px;
   height: 50px;
+  padding: 30px;
+  text-align: center;
 }
 
 h1 {
