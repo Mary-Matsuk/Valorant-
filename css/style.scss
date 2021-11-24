@@ -2,8 +2,10 @@
 @import "fonts.scss";
 
 body {
-  font-family: Montserrat, sans-serif;
+  font-family: montserrat, sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
+  font-size: 12px;
 }
 
 .wrapper__background {
@@ -51,9 +53,12 @@ main {
   border-radius: 10px;
   padding-top: 100px;
   padding-bottom: 100px;
+  @media (min-width: 992px) and (max-width: 1150px) {
+    width: 80%;
+  }
 
   .shadow {
-    box-shadow: 10px 10px 80px 0 #00000080 !important;
+    box-shadow: 10px 10px 80px 0 #000000 !important;
   }
 }
 
@@ -64,9 +69,18 @@ nav {
   .nav-link {
     font-size: 12px;
     text-transform: uppercase;
+    @media (max-width: 1150px) {
+      //padding: 0.5rem;
+    }
 
     .logo {
       max-height: 25px;
+      @media (max-width: 1150px) {
+        max-height: 22px;
+      }
+      @media (max-width: 767.98px) {
+        margin-left: -15px;
+      }
     }
 
     .avatar {
@@ -77,10 +91,19 @@ nav {
   }
 }
 
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show > .nav-link {
+  color: #FF4656;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
 .content {
   position: relative;
   background-color: #FF4656;
-  background-image: url(../images/background/background.png);
+  background-image: url(../images/background/background.webp);
   border-radius: 0 0 10px 10px;
 
   .agents {
@@ -89,6 +112,7 @@ nav {
     .agents_img {
       padding: 20px 20px 20px 40px;
       width: 100%;
+      min-height: 400px;
     }
 
     .agents__card {
@@ -102,7 +126,74 @@ nav {
   }
 
   .cardColumn {
-    background: rgba(0, 0, 255, 0.32);
+    margin: 20px -10px -20px -40px;
+    @media (max-width: 1200px) {
+      margin-right: -20px;
+      margin-left: -20px;
+    }
+
+    .cardColumn_play {
+      width: 10%;
+
+   :hover {
+        color: #FF4656;
+      }
+
+      @media (max-width: 1200px) {
+        width: 20%;
+      }
+      @media (max-width: 767.98px) {
+        width: 100%;
+        min-width: 120px;
+      }
+
+      .cardColumn__cart {
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          width: 100%;
+          height: 100%;
+          max-width: 10px;
+        }
+      }
+    }
+
+    .cardColumn__cart {
+      clip-path: polygon(10px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 12px);
+      background: white;
+      border: solid 1px #1F2326;
+      min-height: 100%;
+      display: flex;
+    }
+
+    .cardColumn__text {
+      padding: 15px 15px 0;
+      flex: 1 1 auto;
+    }
+
+    .cardColumn__img {
+      padding-right: 30px;
+      display: flex;
+      align-items: end;
+
+      .cardColumn__square {
+        width: 50px;
+        height: 50px;
+        background: #FF4656;
+        position: relative;
+
+        svg {
+          position: absolute;
+          top: -15px;
+          right: -15px;
+        }
+
+      }
+    }
+
   }
 
   footer {
@@ -112,8 +203,9 @@ nav {
   }
 }
 
+
 h1 {
-  font-family: Druk Wide, sans-serif;
+  font-family: drukWide, sans-serif;
   font-size: 56px;
   font-weight: 500;
   color: white;
@@ -124,7 +216,7 @@ h1 {
 }
 
 h2 {
-  font-family: Druk Wide, sans-serif;
+  font-family: drukWide, sans-serif;
   font-size: 26px;
   font-weight: 500;
   color: white;
@@ -135,21 +227,20 @@ h2 {
 }
 
 h3 {
-  font-family: Druk Wide, sans-serif;
-  font-size: 18px;
+  font-family: drukWide, sans-serif;
+  font-size: 17px;
   font-weight: 500;
   color: #C4C4C4;
   text-transform: uppercase;
 }
 
 h4 {
-  font-family: Druk Wide, sans-serif;
+  font-family: drukWide, sans-serif;
   font-size: 12px;
   font-weight: 500;
 }
 
 .cardName {
-  //position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -157,11 +248,9 @@ h4 {
   min-height: 100%;
   justify-content: space-between;
 
-
   .cardName__img {
     clip-path: polygon(7% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 4%);
     background: #1F2326;
-    //margin: 0 10px;
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -169,15 +258,11 @@ h4 {
     right: 10px;
     bottom: 3%;
     border: solid 1px white;
-    //width: max-content;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      //position: absolute;
-      //top: 0;
-      //left: 0;
     }
   }
 
@@ -211,12 +296,38 @@ h4 {
     .img {
       padding: 7px;
 
-      img {
+      svg {
         width: 100%;
         height: 100%;
+
       }
     }
   }
+}
+
+.svg-light {
+  color: white;
+
+  :hover {
+    color: #FF4656;
+  }
+}
+
+.svg-dark {
+  color: #1F2326;
+
+  :hover {
+    color: #FF4656;
+  }
+}
+
+a {
+  cursor: pointer;
+  color: #1F2326;
+}
+
+a:hover {
+  color: #C4C4C4;
 }
 
 .cardName-light {
@@ -275,6 +386,9 @@ h4 {
 
 .cardName-title {
   width: 16%;
+  @media (min-width: 400px) and (max-width: 480px) {
+    width: 50%;
+  }
 
   .cardName__agents {
     margin: 0 33%;
@@ -286,3 +400,11 @@ h4 {
     }
   }
 }
+
+.navbar-nav {
+  @media (min-width: 768px) and (max-width: 992px) {
+    padding-left: 15px;
+  }
+}
+
+

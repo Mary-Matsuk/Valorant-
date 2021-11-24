@@ -75,29 +75,31 @@ h1, h2, h3, h4, h5, h6 {
 
 /*--------------------*/
 @font-face {
-  font-family: "Montserrat";
+  font-family: "montserrat";
   src: url("../fonts/Montserrat-Regular.eot");
   src: local("☺"), url("../fonts/Montserrat-Regular.woff") format("woff"), url("../fonts/Montserrat-Regular.ttf") format("truetype"), url("../fonts/Montserrat-Regular.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Montserrat";
+  font-family: "montserrat";
   src: url("../fonts/Montserrat-Bold.eot");
   src: local("☺"), url("../fonts/Montserrat-Bold.woff") format("woff"), url("../fonts/Montserrat-Bold.ttf") format("truetype"), url("../fonts/Montserrat-Bold.svg") format("svg");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "Druk Wide";
+  font-family: "drukWide";
   src: url("../fonts/Druk Wide Medium.eot");
   src: local("☺"), url("../fonts/Druk Wide Medium.woff") format("woff"), url("../fonts/Druk Wide Medium.ttf") format("truetype"), url("../fonts/Druk Wide Medium.svg") format("svg");
   font-weight: 500;
   font-style: normal;
 }
 body {
-  font-family: Montserrat, sans-serif;
+  font-family: montserrat, sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
+  font-size: 12px;
 }
 
 .wrapper__background {
@@ -136,8 +138,13 @@ main {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+@media (min-width: 992px) and (max-width: 1150px) {
+  main {
+    width: 80%;
+  }
+}
 main .shadow {
-  box-shadow: 10px 10px 80px 0 #00000080 !important;
+  box-shadow: 10px 10px 80px 0 #000000 !important;
 }
 
 nav {
@@ -151,16 +158,35 @@ nav .nav-link {
 nav .nav-link .logo {
   max-height: 25px;
 }
+@media (max-width: 1150px) {
+  nav .nav-link .logo {
+    max-height: 22px;
+  }
+}
+@media (max-width: 767.98px) {
+  nav .nav-link .logo {
+    margin-left: -15px;
+  }
+}
 nav .nav-link .avatar {
   height: 32px;
   padding-right: 10px;
   width: auto;
 }
 
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show > .nav-link {
+  color: #FF4656;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
 .content {
   position: relative;
   background-color: #FF4656;
-  background-image: url(../images/background/background.png);
+  background-image: url(../images/background/background.webp);
   border-radius: 0 0 10px 10px;
 }
 .content .agents {
@@ -169,6 +195,7 @@ nav .nav-link .avatar {
 .content .agents .agents_img {
   padding: 20px 20px 20px 40px;
   width: 100%;
+  min-height: 400px;
 }
 .content .agents .agents__card {
   position: absolute;
@@ -179,7 +206,68 @@ nav .nav-link .avatar {
   display: flex;
 }
 .content .cardColumn {
-  background: rgba(0, 0, 255, 0.32);
+  margin: 20px -10px -20px -40px;
+}
+@media (max-width: 1200px) {
+  .content .cardColumn {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+.content .cardColumn .cardColumn_play {
+  width: 10%;
+}
+.content .cardColumn .cardColumn_play :hover {
+  color: #FF4656;
+}
+@media (max-width: 1200px) {
+  .content .cardColumn .cardColumn_play {
+    width: 20%;
+  }
+}
+@media (max-width: 767.98px) {
+  .content .cardColumn .cardColumn_play {
+    width: 100%;
+    min-width: 120px;
+  }
+}
+.content .cardColumn .cardColumn_play .cardColumn__cart {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .cardColumn .cardColumn_play .cardColumn__cart svg {
+  width: 100%;
+  height: 100%;
+  max-width: 10px;
+}
+.content .cardColumn .cardColumn__cart {
+  clip-path: polygon(10px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 12px);
+  background: white;
+  border: solid 1px #1F2326;
+  min-height: 100%;
+  display: flex;
+}
+.content .cardColumn .cardColumn__text {
+  padding: 15px 15px 0;
+  flex: 1 1 auto;
+}
+.content .cardColumn .cardColumn__img {
+  padding-right: 30px;
+  display: flex;
+  align-items: end;
+}
+.content .cardColumn .cardColumn__img .cardColumn__square {
+  width: 50px;
+  height: 50px;
+  background: #FF4656;
+  position: relative;
+}
+.content .cardColumn .cardColumn__img .cardColumn__square svg {
+  position: absolute;
+  top: -15px;
+  right: -15px;
 }
 .content footer {
   background: #F8F8F8;
@@ -188,7 +276,7 @@ nav .nav-link .avatar {
 }
 
 h1 {
-  font-family: Druk Wide, sans-serif;
+  font-family: drukWide, sans-serif;
   font-size: 56px;
   font-weight: 500;
   color: white;
@@ -199,7 +287,7 @@ h1 {
 }
 
 h2 {
-  font-family: Druk Wide, sans-serif;
+  font-family: drukWide, sans-serif;
   font-size: 26px;
   font-weight: 500;
   color: white;
@@ -210,15 +298,15 @@ h2 {
 }
 
 h3 {
-  font-family: Druk Wide, sans-serif;
-  font-size: 18px;
+  font-family: drukWide, sans-serif;
+  font-size: 17px;
   font-weight: 500;
   color: #C4C4C4;
   text-transform: uppercase;
 }
 
 h4 {
-  font-family: Druk Wide, sans-serif;
+  font-family: drukWide, sans-serif;
   font-size: 12px;
   font-weight: 500;
 }
@@ -274,9 +362,32 @@ h4 {
 .cardName .cardName__emblem .img {
   padding: 7px;
 }
-.cardName .cardName__emblem .img img {
+.cardName .cardName__emblem .img svg {
   width: 100%;
   height: 100%;
+}
+
+.svg-light {
+  color: white;
+}
+.svg-light :hover {
+  color: #FF4656;
+}
+
+.svg-dark {
+  color: #1F2326;
+}
+.svg-dark :hover {
+  color: #FF4656;
+}
+
+a {
+  cursor: pointer;
+  color: #1F2326;
+}
+
+a:hover {
+  color: #C4C4C4;
 }
 
 .cardName-light .cardName__img {
@@ -327,12 +438,23 @@ h4 {
 .cardName-title {
   width: 16%;
 }
+@media (min-width: 400px) and (max-width: 480px) {
+  .cardName-title {
+    width: 50%;
+  }
+}
 .cardName-title .cardName__agents {
   margin: 0 33%;
 }
 .cardName-title .cardName__agents img {
   width: 100%;
   height: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .navbar-nav {
+    padding-left: 15px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
