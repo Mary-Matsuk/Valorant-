@@ -69,9 +69,6 @@ nav {
   .nav-link {
     font-size: 12px;
     text-transform: uppercase;
-    @media (max-width: 1150px) {
-      //padding: 0.5rem;
-    }
 
     .logo {
       max-height: 25px;
@@ -172,6 +169,7 @@ nav {
     .cardColumn__text {
       padding: 15px 15px 0;
       flex: 1 1 auto;
+      min-width: 70%;
     }
 
     .cardColumn__img {
@@ -281,7 +279,6 @@ h4 {
   .cardName__emblem {
     background: #1F2326;
     border: solid 1px white;
-    //margin: -20px 0 0 20px;
     z-index: 2;
     display: flex;
     justify-content: space-around;

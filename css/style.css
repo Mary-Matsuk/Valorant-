@@ -252,6 +252,7 @@ nav .nav-link .avatar {
 .content .cardColumn .cardColumn__text {
   padding: 15px 15px 0;
   flex: 1 1 auto;
+  min-width: 70%;
 }
 .content .cardColumn .cardColumn__img {
   padding-right: 30px;
